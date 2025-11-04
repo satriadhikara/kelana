@@ -42,3 +42,7 @@ package-lock.json
 **/*.bun
 
 .env
+
+server
+
+.DS_Store
