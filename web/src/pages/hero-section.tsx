@@ -25,7 +25,7 @@ export default function HeroSection() {
         <div className="flex flex-col items-center justify-center text-center space-y-8">
           <BlurFade delay={0.1} inView>
             <motion.h1
-              className="text-7xl lg:text-7xl font-bold text-[#FF5721] tracking-tight"
+              className="text-6xl lg:text-7xl font-bold text-[#FF5721] tracking-tight"
               whileHover={{
                 scale: 1.02,
                 textShadow: "0 0 20px rgba(255, 87, 33, 0.5)",
@@ -89,7 +89,7 @@ export default function HeroSection() {
               transition: { duration: 0.2 },
             }}
           >
-            Learn More
+            Pelajari Lebih Lanjut!
           </motion.span>
           <motion.div
             whileHover={{

@@ -14,7 +14,7 @@ export default function AboutPage() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <motion.img 
-            src="/logo.svg" 
+            src="/logo-kelana.svg" 
             alt="Kelana Logo" 
             className="w-64 h-64 lg:w-96 lg:h-96 object-contain"
             whileHover={{ 
@@ -81,25 +81,6 @@ export default function AboutPage() {
             }}
           >
               Kelana adalah aplikasi mobile inovatif yang dirancang untuk memperkaya pengalaman budaya Anda melalui kekuatan Augmented Reality (AR) dan Artificial Intelligence (AI). Misi kami adalah menghubungkan pengguna dengan situs bersejarah, landmark budaya, dan tradisi lokal dengan cara yang menarik dan interaktif.
-          </motion.p>
-          
-          <motion.p 
-            className="text-xl text-gray-700 leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            whileHover={{ 
-              x: 5,
-              color: "#1f2937",
-              transition: {
-                type: "spring",
-                stiffness: 300,
-                damping: 20
-              }
-            }}
-          >
-              Dengan memanfaatkan teknologi canggih, Kelana menawarkan pengalaman AR yang imersif yang menghidupkan sejarah.
           </motion.p>
         </motion.div>
         

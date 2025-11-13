@@ -15,31 +15,31 @@ const items = [
   {
     number: 1,
     icon: Gamepad2,
-    title: "Gamifikasi Eksplorasi Budaya",
+    title: "Cultural Mission",
     description:
       "Jelajahi tempat bersejarah sambil menyelesaikan misi dan tantangan unik. Kumpulkan poin dan naikkan level eksplorasimu!",
-    image: "/Gamifikasi.svg", // Changed from './Gamifikasi.svg'
+    image: "/gamifikasi.svg", // Changed from './Gamifikasi.svg'
   },
   {
     number: 2,
     icon: Camera,
-    title: "AR Artefak Sejarah",
+    title: "Smart AR Recognition",
     description:
       "Arahkan kamera ke benda bersejarah dan biarkan AI menjelaskan kisahnya dalam bentuk 3D interaktif dan narasi yang hidup.",
-    image: "/AR-artefak.svg", // Changed from './ar-artefak.svg'
+    image: "/arartefak.svg", // Changed from './ar-artefak.svg'
   },
   {
     number: 3,
     icon: Users,
-    title: "Komunitas Penjelajah Budaya",
+    title: "Story Kelana",
     description:
       "Bergabunglah dengan sesama pecinta budaya, bagikan pengalaman, dan temukan event budaya di kotamu.",
-    image: "/komunitas.svg", // Changed from './komunitas.svg'
+    image: "/community.svg", // Changed from './komunitas.svg'
   },
   {
     number: 4,
     icon: Car,
-    title: "Integrasi Transportasi & Insentif",
+    title: "Smart Travel Mode",
     description:
       "Rencanakan perjalananmu dengan rute transportasi umum terbaik. Dapatkan potongan tiket atau reward saat mengunjungi lokasi budaya.",
     image: "/transportasi.svg", // Changed from './transportasi.svg'
@@ -47,10 +47,10 @@ const items = [
   {
     number: 5,
     icon: Ticket,
-    title: "Ekosistem Tiket & Hadiah",
+    title: "Culture Rewards",
     description:
       "Tukarkan poin eksplorasi dengan tiket museum, merchandise, atau diskon event budaya!",
-    image: "/tiket.svg", // Changed from './tiket.svg'
+    image: "/culturerewards.svg", // Changed from './tiket.svg'
   },
 ];
 
@@ -224,7 +224,7 @@ const Description = () => {
           <h1 className="text-4xl sm:text-5xl font-bold text-[#FF5721] mb-4">
             Fitur Unggulan Kelana
           </h1>
-          <p className="text-lg text-gray-800 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-500 font-semibold max-w-2xl mx-auto">
             Setiap fitur dirancang untuk memberikan pengalaman budaya yang
             menarik, edukatif, dan penuh makna dalam setiap perjalananmu.
           </p>
