@@ -10,93 +10,125 @@ interface FeatureCardProps {
   englishDesc: string
 }
 
-export default function FeatureCard({ emoji, title, subtitle, description }: FeatureCardProps) {
+export default function FeatureCard({ emoji, title, description }: FeatureCardProps) {
   return (
     <motion.div 
-      className="flex flex-col items-center text-center p-6 rounded-lg bg-white border border-gray-200 transition-all duration-300"
+      className="flex flex-col items-start text-start p-6 pt-16 rounded-lg transition-all duration-300 shadow-lg relative overflow-visible"
+      style={{
+        background: 'linear-gradient(135deg, #FFB088 0%, #FFCBA4 50%, #FFE6D4 100%)',
+        border: '2px solid rgba(255, 87, 33, 0.3)'
+      }}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.2 }}
       whileHover={{ 
         scale: 1.05,
-        borderColor: "#FF5721",
-        boxShadow: "0 20px 25px -5px rgba(255, 87, 33, 0.1), 0 10px 10px -5px rgba(255, 87, 33, 0.04)",
+        y: -8,
+        boxShadow: "0 25px 50px -12px rgba(255, 87, 33, 0.4), 0 12px 20px -8px rgba(255, 87, 33, 0.3)",
+        borderColor: "rgba(255, 87, 33, 0.6)",
         transition: {
           type: "spring",
-          stiffness: 300,
-          damping: 20
+          stiffness: 400,
+          damping: 25
         }
       }}
     >
-      {/* Icon Container - matching description.tsx design */}
+      {/* Animated gradient overlay on hover */}
       <motion.div
-        className="flex items-center justify-center w-20 h-20 rounded-2xl mb-4"
+        className="absolute inset-0 opacity-0 pointer-events-none"
         style={{
-          background: `#FFE6D4`,
-          border: '2px solid #FF5721'
+          background: 'radial-gradient(circle at center, rgba(255, 87, 33, 0.1) 0%, transparent 70%)'
         }}
-        whileHover="hover"
-        initial="initial"
-        animate="initial"
+        whileHover={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
+      />
+
+      {/* Emoji Icon - Positioned at top-left with half outside */}
+      <motion.div
+        className="flex items-center justify-center w-20 h-20 rounded-2xl absolute -top-10 left-6 z-20"
+        style={{
+          background: 'linear-gradient(135deg, #FF5721 0%, #FF7043 100%)',
+          border: '2px solid #FF5721',
+          boxShadow: '0 4px 6px rgba(255, 87, 33, 0.2)'
+        }}
+        whileHover={{
+          rotate: [0, -5, 5, -5, 0],
+          scale: 1.1,
+          boxShadow: '0 8px 16px rgba(255, 87, 33, 0.4)',
+          transition: {
+            rotate: {
+              duration: 0.5,
+              ease: "easeInOut"
+            },
+            scale: {
+              type: "spring",
+              stiffness: 400,
+              damping: 15
+            }
+          }
+        }}
       >
         <motion.div
-          className='bg-[#FF5721] w-12 h-12 rounded-xl relative overflow-hidden flex items-center justify-center'
-          variants={{
-            initial: {
-              scale: 1,
-              rotate: 0,
-            },
-            hover: {
-              scale: 1.1,
-              rotate: 10,
+          className='bg-white bg-opacity-20 w-14 h-14 rounded-xl relative overflow-hidden flex items-center justify-center backdrop-blur-sm'
+          whileHover={{
+            scale: 1.15,
+            rotate: 15,
+            backgroundColor: "rgba(255, 255, 255, 0.3)",
+            transition: {
+              type: "spring",
+              stiffness: 500,
+              damping: 20
             }
-          }}
-          transition={{
-            type: "spring",
-            stiffness: 400,
-            damping: 15
           }}
         >
           <div className="w-full h-full inner-shadow absolute top-0 left-0"></div>
-          <div className="flex justify-center items-center w-full h-full relative z-10">
-            <span className="text-2xl">{emoji}</span>
-          </div>
+          <motion.div 
+            className="flex justify-center items-center w-full h-full relative z-10"
+            whileHover={{
+              scale: 1.2,
+              transition: { duration: 0.2 }
+            }}
+          >
+            <span className="text-3xl filter drop-shadow-md">{emoji}</span>
+          </motion.div>
         </motion.div>
       </motion.div>
+      
+      <div className="w-full relative z-10">
+        {/* Title */}
+        <motion.h3 
+          className="text-xl font-bold text-[#FF5721] mb-2"
+          whileHover={{ 
+            x: 5,
+            color: "#E64A19",
+            textShadow: "0 2px 8px rgba(255, 87, 33, 0.3)",
+            transition: { 
+              type: "spring",
+              stiffness: 400,
+              damping: 25
+            }
+          }}
+        >
+          {title}
+        </motion.h3>
 
-      {/* Title */}
-      <motion.h3 
-        className="text-xl font-bold text-gray-900 mb-2"
-        whileHover={{ 
-          color: "#FF5721",
-          transition: { duration: 0.2 }
-        }}
-      >
-        {title}
-      </motion.h3>
-
-      {/* Subtitle */}
-      <motion.p 
-        className="text-sm text-[#FF5721] font-medium mb-3"
-        whileHover={{ 
-          scale: 1.05,
-          transition: { duration: 0.2 }
-        }}
-      >
-        {subtitle}
-      </motion.p>
-
-      {/* Description */}
-      <motion.p 
-        className="text-gray-600 text-sm leading-relaxed"
-        whileHover={{ 
-          color: "#1f2937",
-          transition: { duration: 0.2 }
-        }}
-      >
-        {description}
-      </motion.p>
+        {/* Description */}
+        <motion.p 
+          className="text-gray-800 text-sm leading-relaxed"
+          whileHover={{ 
+            x: 3,
+            color: "#1f2937",
+            transition: { 
+              type: "spring",
+              stiffness: 300,
+              damping: 20
+            }
+          }}
+        >
+          {description}
+        </motion.p>
+      </div>
     </motion.div>
   )
 }
