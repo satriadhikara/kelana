@@ -58,12 +58,12 @@ export default function GetStartedPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            Mulai Petualanganmu dengan <span className="text-yellow-300">Kelana</span>
+            Mulai Petualanganmu dengan <span className="text-[#FF5721]  ">Kelana</span>
           </motion.h1>
 
           {/* Subheading */}
           <motion.p 
-            className="text-white/80 text-center text-lg mb-8 max-w-lg mx-auto"
+            className="text-white/80 text-center text-lg font-semibold mb-8 max-w-lg mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -83,7 +83,7 @@ export default function GetStartedPage() {
             {/* Google Play Button */}
             <motion.a
               href="#"
-              className="transition-all w-full sm:w-48 h-full"
+              className="transition-all w-48 h-14"
               whileHover={{ 
                 scale: 1.05,
                 boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.3)",
@@ -95,13 +95,13 @@ export default function GetStartedPage() {
               }}
               whileTap={{ scale: 0.95 }}
             >
-              <img src="./play-store.svg" alt="Get it on Google Play" className="w-full h-full" />
+              <img src="./play-store.svg" alt="Get it on Google Play" className="w-full h-full object-contain" />
             </motion.a>
 
             {/* Apple App Store Button */}
             <motion.a
               href="#"
-              className="transition-all w-full sm:w-48 h-full"
+              className="transition-all w-48 h-14"
               whileHover={{ 
                 scale: 1.05,
                 boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.3)",
@@ -113,7 +113,7 @@ export default function GetStartedPage() {
               }}
               whileTap={{ scale: 0.95 }}
             >
-              <img src="./app-store.svg" alt="Download on the App Store" className="w-full h-full" />
+              <img src="./app-store.svg" alt="Download on the App Store" className="w-full h-full object-contain" />
             </motion.a>
           </motion.div>
         </motion.div>

@@ -8,9 +8,10 @@ interface FeatureCardProps {
   subtitle: string
   description: string
   englishDesc: string
+  index?: number
 }
 
-export default function FeatureCard({ emoji, title, description }: FeatureCardProps) {
+export default function FeatureCard({ emoji, title, description, index = 0 }: FeatureCardProps) {
   return (
     <motion.div 
       className="flex flex-col items-start text-start p-6 pt-16 rounded-lg transition-all duration-300 shadow-lg relative overflow-visible"
@@ -18,10 +19,14 @@ export default function FeatureCard({ emoji, title, description }: FeatureCardPr
         background: 'linear-gradient(135deg, #FFB088 0%, #FFCBA4 50%, #FFE6D4 100%)',
         border: '2px solid rgba(255, 87, 33, 0.3)'
       }}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.2 }}
+      initial={{ opacity: 0, y: 50, scale: 0.9 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ 
+        duration: 0.6,
+        delay: index * 0.15,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }}
       whileHover={{ 
         scale: 1.05,
         y: -8,
@@ -36,7 +41,7 @@ export default function FeatureCard({ emoji, title, description }: FeatureCardPr
     >
       {/* Animated gradient overlay on hover */}
       <motion.div
-        className="absolute inset-0 opacity-0 pointer-events-none"
+        className="absolute inset-0 opacity-0 pointer-events-none rounded-lg"
         style={{
           background: 'radial-gradient(circle at center, rgba(255, 87, 33, 0.1) 0%, transparent 70%)'
         }}
@@ -51,6 +56,16 @@ export default function FeatureCard({ emoji, title, description }: FeatureCardPr
           background: 'linear-gradient(135deg, #FF5721 0%, #FF7043 100%)',
           border: '2px solid #FF5721',
           boxShadow: '0 4px 6px rgba(255, 87, 33, 0.2)'
+        }}
+        initial={{ opacity: 0, scale: 0, rotate: -180 }}
+        whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+        viewport={{ once: true }}
+        transition={{ 
+          duration: 0.5,
+          delay: index * 0.15 + 0.2,
+          type: "spring",
+          stiffness: 200,
+          damping: 15
         }}
         whileHover={{
           rotate: [0, -5, 5, -5, 0],
@@ -70,11 +85,14 @@ export default function FeatureCard({ emoji, title, description }: FeatureCardPr
         }}
       >
         <motion.div
-          className='bg-white bg-opacity-20 w-14 h-14 rounded-xl relative overflow-hidden flex items-center justify-center backdrop-blur-sm'
+          className='w-14 h-14 rounded-xl relative overflow-hidden flex items-center justify-center backdrop-blur-sm'
+          style={{
+            backgroundColor: "rgba(255, 255, 255, 0.3)"
+          }}
           whileHover={{
             scale: 1.15,
             rotate: 15,
-            backgroundColor: "rgba(255, 255, 255, 0.3)",
+            backgroundColor: "rgba(255, 255, 255, 0.5)",
             transition: {
               type: "spring",
               stiffness: 500,
@@ -99,6 +117,14 @@ export default function FeatureCard({ emoji, title, description }: FeatureCardPr
         {/* Title */}
         <motion.h3 
           className="text-xl font-bold text-[#FF5721] mb-2"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ 
+            duration: 0.5,
+            delay: index * 0.15 + 0.3,
+            ease: "easeOut"
+          }}
           whileHover={{ 
             x: 5,
             color: "#E64A19",
@@ -116,6 +142,14 @@ export default function FeatureCard({ emoji, title, description }: FeatureCardPr
         {/* Description */}
         <motion.p 
           className="text-gray-800 text-sm leading-relaxed"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ 
+            duration: 0.5,
+            delay: index * 0.15 + 0.4,
+            ease: "easeOut"
+          }}
           whileHover={{ 
             x: 3,
             color: "#1f2937",
